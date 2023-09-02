@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Project - Upload CSV</title>
+    
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS for form styling -->
+    <style>
+        /* Style the card with a custom background color and border */
+        .custom-card {
+            background-color: #f7f7f7;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style the card header with custom background color and text color */
+        .custom-card .card-header {
+            background-color: #007bff;
+            color: #fff;
+            border-bottom: none; /* Remove the default border */
+        }
+
+        /* Style the submit button with custom background color and border */
+        .custom-button {
+            background-color: #007bff;
+            border: none;
+        }
+
+        /* Style the submit button on hover */
+        .custom-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <!-- Apply the custom card styling -->
+                <div class="card custom-card">
+                    <!-- Apply the custom card header styling -->
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Upload CSV File</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="csv_file" class="form-label">CSV File</label>
+                                <input type="file" class="form-control" id="csv_file" name="csv_file" accept=".csv" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="timeframe" class="form-label">Timeframe (minutes)</label>
+                                <input type="number" class="form-control" id="timeframe" name="timeframe" value="1" required>
+                            </div>
+                            <!-- Apply the custom button styling -->
+                            <button type="submit" class="btn btn-primary custom-button btn-block">Upload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JavaScript (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
